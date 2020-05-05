@@ -1,24 +1,38 @@
 <template>
     <div class="lang">
-        <select name="language" class="form-select" @change="changeLanguage" v-model="language">
-            <option value="en">English</option>
-            <option value="vi">Tiếng Việt</option>
+        <select v-model="language" @change="changeLanguage">
+            <option v-for="lang in optionLangs" :value="lang.value" >{{lang.text}}</option>
         </select>
-        {{ $t('hello') }}
+        {{lang}} : {{ $t('hello') }}
     </div>
 </template>
 <script>
-    import i18n from '../../plugin/i18n';
     export default {
-        data() {
-            return {
-                language: i18n.locale
-            };
+        data: () => ({
+            optionLangs: [
+                {
+                    text: 'Vietnamese',
+                    value: 'vn'
+                },
+                {
+                    text: 'English',
+                    value: 'en'
+                },
+                {
+                    text: 'Japanese',
+                    value: 'jp'
+                },
+            ],
+            language: 'vn',
+        }),
+        computed: {
+            lang () {
+                return this.$store.state.lang;
+            }
         },
         methods: {
             changeLanguage() {
-                localStorage.setItem('language', this.language);
-                i18n.locale = this.language;
+                this.$store.dispatch('setLang', this.language)
             }
         }
     };
