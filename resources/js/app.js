@@ -7,8 +7,18 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+import App from './components/AppComponent';
 import i18n from '../plugin/i18n';
 import store from './store';
+import VueRouter from 'vue-router';
+import routes from './routes';
+
+
+Vue.component('home', require('./components/HomeComponent'));
+Vue.component('login', require('./components/LoginComponent'));
+Vue.component('app', require('./components/AppComponent'));
+Vue.component('dashboard', require('./components/DashboardComponent'));
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,7 +30,13 @@ import store from './store';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 Vue.use(i18n);
-Vue.component('example-component', require('./components/LangComponent.vue').default);
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    history: true,
+    routes,
+    mode: 'history'
+});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -31,5 +47,7 @@ const app = new Vue({
     el: '#app',
     i18n,
     store,
+    router,
+    render: h => h(App)
 });
 export default app
