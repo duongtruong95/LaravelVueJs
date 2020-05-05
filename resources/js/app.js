@@ -8,6 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import i18n from '../plugin/i18n';
+import store from './store';
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,4 +30,6 @@ Vue.component('example-component', require('./components/LangComponent.vue').def
 const app = new Vue({
     el: '#app',
     i18n,
+    store,
 });
+export default app
