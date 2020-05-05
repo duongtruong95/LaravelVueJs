@@ -7,6 +7,9 @@ const routes = [
         path: '/',
         component: Home,
         name: 'index',
+        meta: {
+            auth: true
+        },
     },
     {
         path: '/login',
@@ -17,6 +20,9 @@ const routes = [
         path: '/dashboard',
         component: Dashboard,
         name: 'dashboard',
+        meta: {
+            auth: true
+        },
     }
 ];
 
