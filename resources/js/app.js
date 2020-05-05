@@ -37,6 +37,16 @@ const router = new VueRouter({
     routes,
     mode: 'history'
 });
+
+router.beforeEach((to, from, next) => {
+    const loggedIn = localStorage.getItem('user');
+    if (to.matched.some(record => record.meta.auth) && !loggedIn) {
+        next('/login')
+        return
+    }
+    next()
+})
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
