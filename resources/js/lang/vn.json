@@ -1,3 +1,11 @@
 {
-    "hello" : "Xin Chào"
+    "login" : "Đăng nhập",
+    "logout" : "Đăng xuất",
+    "home" : "Trang chủ",
+    "product" : "Sản phẩm",
+    "register" : "Đăng ký",
+    "confirm password" : "Nhập lại mật khẩu",
+    "username" : "Tên người dùng",
+    "password" : "Mật khẩu",
+    "email" : "Địa chỉ Mail"
 }

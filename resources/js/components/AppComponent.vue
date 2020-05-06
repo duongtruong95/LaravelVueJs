@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
 
@@ -12,34 +12,49 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <li class="nav-item">
+                        <li class="nav-item" v-if="isLogged">
                             <router-link
                                 class="nav-link"
                                 :class="[{active: $route.name === 'index'}]"
-                                :to="{name: 'index'}" v-if="isLogged || checkLogin">
-                                Home
+                                :to="{name: 'index'}">
+                                {{$t("home")}}
                             </router-link>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" v-if="isLogged">
                             <router-link
                                 class="nav-link"
-                                :class="[{active: $route.name === 'dashboard'}]"
-                                :to="{name: 'dashboard'}" v-if="isLogged || checkLogin">
-                                Dashboard
+                                :class="[{active: $route.name === 'product'}]"
+                                :to="{name: 'product'}">
+                                {{$t("product")}}
                             </router-link>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" v-if="!isLogged">
                             <router-link
                                 class="nav-link"
                                 :class="[{active: $route.name === 'login'}]"
-                                :to="{name: 'login'}" v-if="!isLogged && !checkLogin">
-                                Login
+                                :to="{name: 'login'}">
+                                {{$t("login")}}
                             </router-link>
                         </li>
+                        <li class="nav-item" v-if="!isLogged">
+                            <router-link
+                                class="nav-link"
+                                :class="[{active: $route.name === 'register'}]"
+                                :to="{name: 'register'}">
+                                {{$t("register")}}
+                            </router-link>
+                        </li>
+                        <li class="nav-item" v-else>
+                            <a
+                                class="nav-link cursor-p"
+                                @click="logout()">
+                                {{$t("logout")}}
+                            </a>
+                        </li>
                         <li class="nav-item">
-                            <button type="button" class="nav-link" @click="logout()" v-if="isLogged || checkLogin">
-                                Logout
-                            </button>
+                            <select v-model="language" @change="changeLanguage" class="form-control">
+                                <option v-for="lang in optionLangs" :value="lang.value">{{lang.text}}</option>
+                            </select>
                         </li>
                     </ul>
                 </div>
@@ -54,16 +69,37 @@
 <script>
     export default {
         name: 'App',
+        data: () => ({
+            optionLangs: [
+                {
+                    text: 'Vietnamese',
+                    value: 'vn'
+                },
+                {
+                    text: 'English',
+                    value: 'en'
+                },
+                {
+                    text: '日本',
+                    value: 'jp'
+                },
+            ],
+            language: ''
+        }),
         created() {
-            this.checkLogin = localStorage.getItem('user');
+            this.language = this.$store.state.lang;
+            this.$store.dispatch('setLang', this.$store.state.lang);
         },
         computed: {
-            isLogged () {
+            isLogged() {
                 return this.$store.state.isLogged;
             }
         },
         methods: {
-            logout () {
+            changeLanguage() {
+                this.$store.dispatch('setLang', this.language);
+            },
+            logout() {
                 this.$store.dispatch('logout');
             }
         }

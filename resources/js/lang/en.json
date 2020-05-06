@@ -1,3 +1,11 @@
 {
-   "hello" : "Hello"
+   "login" : "Login",
+   "logout" : "Logout",
+    "home" : "Home",
+    "product" : "Product",
+    "register" : "Register",
+    "confirm password" : "Confirm Password",
+    "username" : "Username",
+    "password" : "Password",
+    "email" : "Email Address"
 }

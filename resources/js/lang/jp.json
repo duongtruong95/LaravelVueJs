@@ -1,3 +1,11 @@
 {
-    "hello" : "こんにちは"
+    "login" : "ログイン",
+    "logout" : "ログアウト",
+    "home" : "ホーム",
+    "product" : "製品",
+    "register" : "登録",
+    "confirm password" : "パスワードの確認",
+    "username" : "ユーザー名",
+    "password" : "パスワード",
+    "email" :"電子メールアドレス"
 }
