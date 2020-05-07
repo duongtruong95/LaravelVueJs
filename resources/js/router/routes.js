@@ -2,6 +2,7 @@ import Home from '../components/HomeComponent';
 import Login from '../components/LoginComponent';
 import Product from '../components/ProductComponent';
 import Register from '../components/RegisterComponent';
+import CreateNotification from "../components/CreateNotification";
 
 const routes = [
     {
@@ -16,6 +17,14 @@ const routes = [
         path: '/login',
         component: Login,
         name: 'login',
+    },
+    {
+        path: '/create',
+        component: CreateNotification,
+        name: 'createNotification',
+        meta: {
+            auth: true
+        },
     },
     {
         path: '/register',

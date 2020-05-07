@@ -20,3 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register', 'AuthController@register');
 Route::post('login', 'AuthController@login');
+
+Route::group(['middleware' => ['jwt.auth', 'checkRoleAdmin']], function () {
+    Route::post('sendMail', 'NotificationController@sendNotificationAllMember');
+    Route::get('notification/{id}', 'NotificationController@viewNotification');
+});
