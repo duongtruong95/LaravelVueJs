@@ -7,5 +7,12 @@
     "confirm password" : "Confirm Password",
     "username" : "Username",
     "password" : "Password",
-    "email" : "Email Address"
+    "email" : "Email Address",
+    "email_require" : "Email required.",
+    "password_require" : "Password required.",
+    "username_require" : "Username required.",
+    "email_valid_format" : "Email Address in invalid format.",
+    "login_fail" : "The Email address or Password is incorrect.",
+    "user_created_successfully" : "User created successfully!",
+    "confirm_password_dont_match" : "Password and confirm password don't match."
 }

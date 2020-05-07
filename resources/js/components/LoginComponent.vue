@@ -6,10 +6,10 @@
                     <div class="card-header">{{ $t('login') }}</div>
                     <div class="card-body">
                         <ul class="alert alert-danger pl-5" v-if="errors.length">
-                            <li v-for="error in errors">{{ error }}</li>
+                            <li v-for="error in errors">{{ $t(error) }}</li>
                         </ul>
                         <div class="alert alert-success" role="alert" v-if="this.$route.params.message">
-                            {{this.$route.params.message}}
+                            {{$t(this.$route.params.message)}}
                         </div>
                         <form @submit="checkForm" method="POST">
 
@@ -73,7 +73,7 @@
                 }).catch((err) => {
                     if (err.response.status) {
                         if (err.response.status == 422) {
-                            this.errors.push('The Email address or Password is incorrect.');
+                            this.errors.push('login_fail');
                         } else {
                             console.log(err.response.data.error);
                         }
@@ -84,12 +84,12 @@
                 this.errors = [];
 
                 if (!this.email) {
-                    this.errors.push('Email required.');
+                    this.errors.push('email_require');
                 } else if (!this.validEmail(this.email)) {
-                    this.errors.push('Email Address in invalid format.');
+                    this.errors.push('email_valid_format');
                 }
                 if (!this.password) {
-                    this.errors.push("Password required.");
+                    this.errors.push('password_require');
                 }
                 if (!this.errors.length) {
                     this.login();

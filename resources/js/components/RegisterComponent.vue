@@ -6,7 +6,7 @@
                 <div class="card-header">{{ $t('register') }}</div>
                 <div class="card-body">
                     <ul class="alert alert-danger pl-5" v-if="errors.length">
-                        <li v-for="error in errors">{{ error }}</li>
+                        <li v-for="error in errors">{{ $t(error) }}</li>
                     </ul>
                     <form method="POST" @submit="checkForm">
 
@@ -74,7 +74,7 @@
                     email: this.email,
                     password: this.password,
                 }).then(() => {
-                    this.$router.push( {name: 'login', params: {message: 'User created successfully'}});
+                    this.$router.push( {name: 'login', params: {message: 'user_created_successfully'}});
                 }).catch((err) => {
                     console.log(err);
                 })
@@ -83,18 +83,18 @@
                 this.errors = [];
 
                 if (!this.email) {
-                    this.errors.push('Email required.');
+                    this.errors.push('email_require');
                 } else if (!this.validEmail(this.email)) {
-                    this.errors.push('Email Address in invalid format.');
+                    this.errors.push('email_valid_format');
                 }
                 if (!this.username) {
-                    this.errors.push("Username required.");
+                    this.errors.push('username_require');
                 }
                 if (!this.password) {
-                    this.errors.push("Password required.");
+                    this.errors.push('password_require');
                 }
                 if (this.password_confirmation != this.password) {
-                    this.errors.push("Password and confirm password don't match.");
+                    this.errors.push('confirm_password_dont_match');
                 }
                 if (!this.errors.length) {
                     this.register();

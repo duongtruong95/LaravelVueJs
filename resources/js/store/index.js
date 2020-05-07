@@ -2,9 +2,11 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import i18n from '../../plugin/i18n';
 import axios from 'axios';
-Vue.use(Vuex);
 
-axios.defaults.baseURL = 'http://localhost/api';
+Vue.use(Vuex);
+Vue.use(i18n);
+
+axios.defaults.baseURL = '/api';
 const dataUser = JSON.parse(localStorage.getItem('user'));
 
 export default new Vuex.Store({

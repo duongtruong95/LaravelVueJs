@@ -19,7 +19,12 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/style.css') }}" rel="stylesheet">
+    <style>
+        .cursor-p {
+            cursor: pointer;
+        }
+    </style>
+{{--    <link href="{{ mix('css/style.css') }}" rel="stylesheet">--}}
 </head>
 <body>
 <div id="app">

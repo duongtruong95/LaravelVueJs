@@ -7,5 +7,12 @@
     "confirm password" : "Nhập lại mật khẩu",
     "username" : "Tên người dùng",
     "password" : "Mật khẩu",
-    "email" : "Địa chỉ Mail"
+    "email" : "Địa chỉ Mail",
+    "email_require" : "Vui lòng nhập địa chỉ email.",
+    "password_require" : "Vui lòng nhập mật khẩu.",
+    "username_require" : "Vui lòng nhập username.",
+    "email_valid_format" : "Vui lòng nhập đúng định dạng email.",
+    "login_fail" : "Tên email hoặc mật khẩu không đúng.",
+    "user_created_successfully" : "Đăng ký người dùng thành công!!!",
+    "confirm_password_dont_match" : "Nhập lại mật khẩu không khớp."
 }

@@ -2129,7 +2129,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         if (err.response.status) {
           if (err.response.status == 422) {
-            _this.errors.push('The Email address or Password is incorrect.');
+            _this.errors.push('login_fail');
           } else {
             console.log(err.response.data.error);
           }
@@ -2140,13 +2140,13 @@ __webpack_require__.r(__webpack_exports__);
       this.errors = [];
 
       if (!this.email) {
-        this.errors.push('Email required.');
+        this.errors.push('email_require');
       } else if (!this.validEmail(this.email)) {
-        this.errors.push('Email Address in invalid format.');
+        this.errors.push('email_valid_format');
       }
 
       if (!this.password) {
-        this.errors.push("Password required.");
+        this.errors.push('password_require');
       }
 
       if (!this.errors.length) {
@@ -2281,7 +2281,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push({
           name: 'login',
           params: {
-            message: 'User created successfully'
+            message: 'user_created_successfully'
           }
         });
       })["catch"](function (err) {
@@ -2292,21 +2292,21 @@ __webpack_require__.r(__webpack_exports__);
       this.errors = [];
 
       if (!this.email) {
-        this.errors.push('Email required.');
+        this.errors.push('email_require');
       } else if (!this.validEmail(this.email)) {
-        this.errors.push('Email Address in invalid format.');
+        this.errors.push('email_valid_format');
       }
 
       if (!this.username) {
-        this.errors.push("Username required.");
+        this.errors.push('username_require');
       }
 
       if (!this.password) {
-        this.errors.push("Password required.");
+        this.errors.push('password_require');
       }
 
       if (this.password_confirmation != this.password) {
-        this.errors.push("Password and confirm password don't match.");
+        this.errors.push('confirm_password_dont_match');
       }
 
       if (!this.errors.length) {
@@ -40328,7 +40328,7 @@ var render = function() {
                   "ul",
                   { staticClass: "alert alert-danger pl-5" },
                   _vm._l(_vm.errors, function(error) {
-                    return _c("li", [_vm._v(_vm._s(error))])
+                    return _c("li", [_vm._v(_vm._s(_vm.$t(error)))])
                   }),
                   0
                 )
@@ -40344,7 +40344,7 @@ var render = function() {
                   [
                     _vm._v(
                       "\n                        " +
-                        _vm._s(this.$route.params.message) +
+                        _vm._s(_vm.$t(this.$route.params.message)) +
                         "\n                    "
                     )
                   ]
@@ -40544,7 +40544,7 @@ var render = function() {
                   "ul",
                   { staticClass: "alert alert-danger pl-5" },
                   _vm._l(_vm.errors, function(error) {
-                    return _c("li", [_vm._v(_vm._s(error))])
+                    return _c("li", [_vm._v(_vm._s(_vm.$t(error)))])
                   }),
                   0
                 )
@@ -56946,7 +56946,7 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56964,7 +56964,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_plugin_i18n__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   i18n: _plugin_i18n__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -56974,6 +56973,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     return h(_components_AppComponent__WEBPACK_IMPORTED_MODULE_1__["default"]);
   }
 });
+/* harmony default export */ __webpack_exports__["default"] = (app);
 
 /***/ }),
 
@@ -57371,10 +57371,10 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: login, logout, home, product, register, confirm password, username, password, email, default */
+/*! exports provided: login, logout, home, product, register, confirm password, username, password, email, email_require, password_require, username_require, email_valid_format, login_fail, user_created_successfully, confirm_password_dont_match, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"login\":\"Login\",\"logout\":\"Logout\",\"home\":\"Home\",\"product\":\"Product\",\"register\":\"Register\",\"confirm password\":\"Confirm Password\",\"username\":\"Username\",\"password\":\"Password\",\"email\":\"Email Address\"}");
+module.exports = JSON.parse("{\"login\":\"Login\",\"logout\":\"Logout\",\"home\":\"Home\",\"product\":\"Product\",\"register\":\"Register\",\"confirm password\":\"Confirm Password\",\"username\":\"Username\",\"password\":\"Password\",\"email\":\"Email Address\",\"email_require\":\"Email required.\",\"password_require\":\"Password required.\",\"username_require\":\"Username required.\",\"email_valid_format\":\"Email Address in invalid format.\",\"login_fail\":\"The Email address or Password is incorrect.\",\"user_created_successfully\":\"User created successfully!\",\"confirm_password_dont_match\":\"Password and confirm password don't match.\"}");
 
 /***/ }),
 
@@ -57382,10 +57382,10 @@ module.exports = JSON.parse("{\"login\":\"Login\",\"logout\":\"Logout\",\"home\"
 /*!***********************************!*\
   !*** ./resources/js/lang/jp.json ***!
   \***********************************/
-/*! exports provided: login, logout, home, product, register, confirm password, username, password, email, default */
+/*! exports provided: login, logout, home, product, register, confirm password, username, password, email, email_require, password_require, username_require, email_valid_format, login_fail, user_created_successfully, confirm_password_dont_match, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"login\":\"ログイン\",\"logout\":\"ログアウト\",\"home\":\"ホーム\",\"product\":\"製品\",\"register\":\"登録\",\"confirm password\":\"パスワードの確認\",\"username\":\"ユーザー名\",\"password\":\"パスワード\",\"email\":\"電子メールアドレス\"}");
+module.exports = JSON.parse("{\"login\":\"ログイン\",\"logout\":\"ログアウト\",\"home\":\"ホーム\",\"product\":\"製品\",\"register\":\"登録\",\"confirm password\":\"パスワードの確認\",\"username\":\"ユーザー名\",\"password\":\"パスワード\",\"email\":\"電子メールアドレス\",\"email_require\":\"メールが必要です。\",\"password_require\":\"パスワードが必要です。\",\"username_require\":\"ユーザー名が必要です。\",\"email_valid_format\":\"無効な形式のメールアドレス。\",\"login_fail\":\"メールアドレスまたはパスワードが正しくありません。\",\"user_created_successfully\":\"ユーザーが正常に作成されました！\",\"confirm_password_dont_match\":\"パスワードと確認パスワードが一致しません。\"}");
 
 /***/ }),
 
@@ -57393,10 +57393,10 @@ module.exports = JSON.parse("{\"login\":\"ログイン\",\"logout\":\"ログア�
 /*!***********************************!*\
   !*** ./resources/js/lang/vn.json ***!
   \***********************************/
-/*! exports provided: login, logout, home, product, register, confirm password, username, password, email, default */
+/*! exports provided: login, logout, home, product, register, confirm password, username, password, email, email_require, password_require, username_require, email_valid_format, login_fail, user_created_successfully, confirm_password_dont_match, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"login\":\"Đăng nhập\",\"logout\":\"Đăng xuất\",\"home\":\"Trang chủ\",\"product\":\"Sản phẩm\",\"register\":\"Đăng ký\",\"confirm password\":\"Nhập lại mật khẩu\",\"username\":\"Tên người dùng\",\"password\":\"Mật khẩu\",\"email\":\"Địa chỉ Mail\"}");
+module.exports = JSON.parse("{\"login\":\"Đăng nhập\",\"logout\":\"Đăng xuất\",\"home\":\"Trang chủ\",\"product\":\"Sản phẩm\",\"register\":\"Đăng ký\",\"confirm password\":\"Nhập lại mật khẩu\",\"username\":\"Tên người dùng\",\"password\":\"Mật khẩu\",\"email\":\"Địa chỉ Mail\",\"email_require\":\"Vui lòng nhập địa chỉ email.\",\"password_require\":\"Vui lòng nhập mật khẩu.\",\"username_require\":\"Vui lòng nhập username.\",\"email_valid_format\":\"Vui lòng nhập đúng định dạng email.\",\"login_fail\":\"Tên email hoặc mật khẩu không đúng.\",\"user_created_successfully\":\"Đăng ký người dùng thành công!!!\",\"confirm_password_dont_match\":\"Nhập lại mật khẩu không khớp.\"}");
 
 /***/ }),
 
@@ -57428,7 +57428,8 @@ router.beforeEach(function (to, from, next) {
     return record.meta.auth;
   }) && !loggedIn) {
     next('/login');
-    return;
+  } else if (to.path == '/login' && loggedIn) {
+    next('/');
   }
 
   next();
@@ -57501,7 +57502,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
-axios__WEBPACK_IMPORTED_MODULE_3___default.a.defaults.baseURL = 'http://localhost/api';
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_plugin_i18n__WEBPACK_IMPORTED_MODULE_2__["default"]);
+axios__WEBPACK_IMPORTED_MODULE_3___default.a.defaults.baseURL = '/api';
 var dataUser = JSON.parse(localStorage.getItem('user'));
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {

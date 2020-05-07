@@ -6,8 +6,6 @@ import store from './store/index';
 import router from './router';
 import i18n from '../plugin/i18n';
 
-Vue.use(i18n);
-
 const app = new Vue({
     el: '#app',
     i18n,
@@ -15,3 +13,5 @@ const app = new Vue({
     router,
     render: h => h(App)
 });
+
+export default app;
