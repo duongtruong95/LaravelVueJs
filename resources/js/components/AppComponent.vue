@@ -20,12 +20,12 @@
                                 {{$t("home")}}
                             </router-link>
                         </li>
-                        <li class="nav-item" v-if="isLogged">
+                        <li class="nav-item" v-if="isLogged && isAdmin">
                             <router-link
                                 class="nav-link"
-                                :class="[{active: $route.name === 'product'}]"
-                                :to="{name: 'product'}">
-                                {{$t("product")}}
+                                :class="[{active: $route.name === 'createNotification'}]"
+                                :to="{name: 'createNotification'}">
+                                {{$t("create_notification")}}
                             </router-link>
                         </li>
                         <li class="nav-item" v-if="!isLogged">
@@ -93,6 +93,9 @@
         computed: {
             isLogged() {
                 return this.$store.state.isLogged;
+            },
+            isAdmin() {
+                return this.$store.state.user.level;
             }
         },
         methods: {
