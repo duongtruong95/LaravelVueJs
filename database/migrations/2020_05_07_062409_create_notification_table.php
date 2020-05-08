@@ -17,10 +17,11 @@ class CreateNotificationTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('content');
-            $table->string('token');
+            $table->unsignedInteger('created_by');
+            $table->unsignedInteger('updated_by');
             $table->timestamps();
         });
-        Schema::create('user_notification', function (Blueprint $table) {
+        Schema::create('users_notifications', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('notification_id');

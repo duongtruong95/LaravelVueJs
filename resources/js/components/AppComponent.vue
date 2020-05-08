@@ -20,7 +20,7 @@
                                 {{$t("home")}}
                             </router-link>
                         </li>
-                        <li class="nav-item" v-if="isLogged">
+                        <li class="nav-item" v-if="isLogged && isAdmin">
                             <router-link
                                 class="nav-link"
                                 :class="[{active: $route.name === 'createNotification'}]"
@@ -93,6 +93,9 @@
         computed: {
             isLogged() {
                 return this.$store.state.isLogged;
+            },
+            isAdmin() {
+                return this.$store.state.user.level;
             }
         },
         methods: {

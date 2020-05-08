@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Symfony\Component\HttpFoundation\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -55,16 +56,32 @@ class Handler extends ExceptionHandler
             $preException = $exception->getPrevious();
             if ($preException instanceof
                 \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
-                return response()->json(['status' => 'TOKEN_EXPIRED']);
+                return response()->json([
+                    'status'  => false,
+                    'code'    => Response::HTTP_UNAUTHORIZED,
+                    'message' => 'TOKEN_EXPIRED',
+                ], Response::HTTP_UNAUTHORIZED);
             } else if ($preException instanceof
                 \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
-                return response()->json(['status' => 'TOKEN_INVALID']);
+                return response()->json([
+                    'status'  => false,
+                    'code'    => Response::HTTP_UNAUTHORIZED,
+                    'message' => 'TOKEN_INVALID',
+                ], Response::HTTP_UNAUTHORIZED);
             } else if ($preException instanceof
                 \Tymon\JWTAuth\Exceptions\TokenBlacklistedException) {
-                return response()->json(['status' => 'TOKEN_BLACKLISTED']);
+                return response()->json([
+                    'status'  => false,
+                    'code'    => Response::HTTP_FORBIDDEN,
+                    'message' => 'TOKEN_BLACKLISTED',
+                ], Response::HTTP_FORBIDDEN);
             }
             if ($exception->getMessage() === 'Token not provided') {
-                return response()->json(['status' => 'Token not provided']);
+                return response()->json([
+                    'status'  => false,
+                    'code'    => Response::HTTP_BAD_REQUEST,
+                    'message' => 'Token not provided',
+                ], Response::HTTP_BAD_REQUEST);
             }
         }
         return parent::render($request, $exception);

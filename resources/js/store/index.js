@@ -41,7 +41,7 @@ export default new Vuex.Store({
             return axios
                 .post('/login', credentials)
                 .then(({data}) => {
-                    commit('setUserData', {token: data.access_token, email: credentials.email})
+                    commit('setUserData', {token: data.access_token, email: credentials.email, level: data.level})
                 })
         },
         logout({commit}) {

@@ -3,6 +3,8 @@ import Login from '../components/LoginComponent';
 import Product from '../components/ProductComponent';
 import Register from '../components/RegisterComponent';
 import CreateNotification from "../components/CreateNotification";
+import DetailNotification from "../components/DetailNotificationComponent";
+import Forbidden from "../components/ForbiddenComponent";
 
 const routes = [
     {
@@ -23,6 +25,15 @@ const routes = [
         component: CreateNotification,
         name: 'createNotification',
         meta: {
+            auth: true,
+            adminRole: true
+        },
+    },
+    {
+        path: '/notification/detail/:id',
+        component: DetailNotification,
+        name: 'detailNotification',
+        meta: {
             auth: true
         },
     },
@@ -38,7 +49,12 @@ const routes = [
         meta: {
             auth: true
         },
-    }
+    },
+    {
+        path: '/403',
+        component: Forbidden,
+        name: '403',
+    },
 ];
 
 export default routes;

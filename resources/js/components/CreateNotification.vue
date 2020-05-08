@@ -28,8 +28,8 @@
                                     }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="content" type="text" v-model="content" class="form-control"
-                                           name="content" value="" autocomplete="content">
+                                    <textarea v-model="content" class="form-control ckeditor" rows="5">
+                                    </textarea>
                                 </div>
                             </div>
 
@@ -58,25 +58,15 @@
             errors: []
         }),
         methods: {
-            createnOTI() {
-                axios.post('/sendMail',
-                    {
-                        title: this.title,
-                        content: this.content
-                    },
-                    {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            "Authorization": `Bearer ${this.$store.state.user.token}`
-                        },
-                    }
-                ).then(() => {
-                    this.title = '';
-                    this.content = '';
-                    this.messageSuccess = true;
-                }).catch((err) => {
-                    console.log(err);
-                })
+            create() {
+                this.$api.POST('/sendMail', {
+                    title: this.title,
+                    content: this.content
+                }).then(() => {
+                        this.title = '';
+                        this.content = '';
+                        this.messageSuccess = true;
+                    })
             },
             checkForm: function (e) {
                 this.errors = [];
@@ -88,7 +78,7 @@
                     this.errors.push('username_require');
                 }
                 if (!this.errors.length) {
-                    this.createnOTI();
+                    this.create();
                 }
 
                 e.preventDefault();
