@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'Login',
+        name: 'Home',
         computed: {
             email() {
                 return this.$store.state.user.email;

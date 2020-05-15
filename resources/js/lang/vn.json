@@ -2,9 +2,11 @@
     "login" : "Đăng nhập",
     "logout" : "Đăng xuất",
     "home" : "Trang chủ",
-    "create_notification" : "Thêm mới thông báo",
+    "notification" : "Thông báo",
+    "list" : "Danh sách",
     "register" : "Đăng ký",
-    "create" : "Tạo mới",
+    "create" : "Thêm mới",
+    "users" : "Thành viên",
     "title" : "Tiêu đề",
     "content" : "Nội dung",
     "confirm password" : "Nhập lại mật khẩu",
@@ -16,6 +18,6 @@
     "username_require" : "Vui lòng nhập username.",
     "email_valid_format" : "Vui lòng nhập đúng định dạng email.",
     "login_fail" : "Tên email hoặc mật khẩu không đúng.",
-    "user_created_successfully" : "Đăng ký người dùng thành công!!!",
+    "created_successfully" : "Đăng ký thành công!!!",
     "confirm_password_dont_match" : "Nhập lại mật khẩu không khớp."
 }

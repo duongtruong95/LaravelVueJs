@@ -1,10 +1,13 @@
-import Home from '../components/HomeComponent';
-import Login from '../components/LoginComponent';
-import Product from '../components/ProductComponent';
-import Register from '../components/RegisterComponent';
-import CreateNotification from "../components/CreateNotification";
-import DetailNotification from "../components/DetailNotificationComponent";
-import Forbidden from "../components/ForbiddenComponent";
+import Home from '../components/Home';
+import Login from '../components/Login';
+import Register from '../components/Register';
+import CreateNotification from "../components/admin/CreateNotification";
+import DetailNotification from "../components/admin/DetailNotification";
+import ListNotification from "../components/admin/ListNotification";
+import UserListNotification from "../components/ListNotification";
+import UserNotification from "../components/admin/UserNotification";
+import User from "../components/admin/User";
+import Forbidden from "../components/Forbidden";
 
 const routes = [
     {
@@ -21,7 +24,7 @@ const routes = [
         name: 'login',
     },
     {
-        path: '/create',
+        path: '/admin/notification/create',
         component: CreateNotification,
         name: 'createNotification',
         meta: {
@@ -30,7 +33,42 @@ const routes = [
         },
     },
     {
-        path: '/notification/detail/:id',
+        path: '/admin/users',
+        component: User,
+        name: 'users',
+        meta: {
+            auth: true,
+            adminRole: true
+        },
+    },
+    {
+        path: '/admin/notification/list',
+        component: ListNotification,
+        name: 'listNotification',
+        meta: {
+            auth: true,
+            adminRole: true
+        },
+    },
+    {
+        path: '/admin/notification-user/:id',
+        component: UserNotification,
+        name: 'userNotification',
+        meta: {
+            auth: true,
+            adminRole: true
+        },
+    },
+    {
+        path: '/notification/list',
+        component: UserListNotification,
+        name: 'userListNotification',
+        meta: {
+            auth: true
+        },
+    },
+    {
+        path: '/notification/:id',
         component: DetailNotification,
         name: 'detailNotification',
         meta: {
@@ -41,14 +79,6 @@ const routes = [
         path: '/register',
         component: Register,
         name: 'register',
-    },
-    {
-        path: '/product',
-        component: Product,
-        name: 'product',
-        meta: {
-            auth: true
-        },
     },
     {
         path: '/403',

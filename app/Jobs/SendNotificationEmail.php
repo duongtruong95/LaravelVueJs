@@ -38,11 +38,7 @@ class SendNotificationEmail implements ShouldQueue
      */
     public function handle()
     {
-        try {
-            $email = new MailNotify($this->notification);
-            Mail::to($this->arrEmail)->send($email);
-        } catch (Exception $e) {
-            Log::error($e->getLine() . $e->getCode() . $e->getMessage());
-        }
+        $email = new MailNotify($this->notification);
+        Mail::to($this->arrEmail)->send($email);
     }
 }

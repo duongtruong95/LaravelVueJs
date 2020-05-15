@@ -2,9 +2,12 @@
     "login" : "ログイン",
     "logout" : "ログアウト",
     "home" : "ホーム",
-    "create_notification" : "通知を作成",
+    "notification" : "通知",
+    "create" : "作ります",
+    "list" : "リスト",
     "register" : "登録",
     "create" : "作成する",
+    "users" : "メンバー",
     "title" : "題名",
     "content" : "コンテンツ",
     "confirm password" : "パスワードの確認",
@@ -16,6 +19,6 @@
     "username_require": "ユーザー名が必要です。",
     "email_valid_format": "無効な形式のメールアドレス。",
     "login_fail": "メールアドレスまたはパスワードが正しくありません。",
-    "user_created_successfully": "ユーザーが正常に作成されました！",
+    "created_successfully": "ユーザーが正常に作成されました！",
     "confirm_password_dont_match": "パスワードと確認パスワードが一致しません。"
 }

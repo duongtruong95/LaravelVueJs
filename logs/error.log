@@ -1,0 +1,2 @@
+[Mon May 11 16:13:41.687365 2020] [php7:error] [pid 90] [client 172.18.0.1:60388] PHP Fatal error:  Interface 'App\\Repositories\\User\\NotificationRepositoryInterface' not found in /var/www/html/app/app/Repositories/User/UserRepository.php on line 9
+[Mon May 11 16:14:12.912367 2020] [php7:error] [pid 95] [client 172.18.0.1:60398] PHP Fatal error:  Interface 'App\\Repositories\\User\\UserRepositoryInterface' not found in /var/www/html/app/app/Repositories/User/UserRepository.php on line 9

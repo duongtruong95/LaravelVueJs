@@ -50,7 +50,8 @@ function outputError (error) {
          * status code that falls out of the range of 2xx
          */
         if (error.response.status === 401) {
-            store.dispatch('logout')
+            store.dispatch('logout', true);
+            router.push({ name: 'login', params: { redirect: router.currentRoute.path } });
             return
         } else if (error.response.status === 403) {
             router.replace({ name: '403' })
