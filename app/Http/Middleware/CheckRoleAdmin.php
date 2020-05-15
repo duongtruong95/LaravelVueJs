@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Symfony\Component\HttpFoundation\Response;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class CheckRoleAdmin
@@ -17,7 +18,11 @@ class CheckRoleAdmin
     public function handle($request, Closure $next)
     {
         if(JWTAuth::user()->level != 1){
-            abort(403);
+            return response()->json([
+                'status' => false,
+                'code' => Response::HTTP_FORBIDDEN,
+                'message' => 'Permisstion Required!',
+            ], Response::HTTP_FORBIDDEN);
         }
         return $next($request);
     }

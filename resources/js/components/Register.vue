@@ -74,7 +74,7 @@
                     email: this.email,
                     password: this.password,
                 }).then(() => {
-                    this.$router.push( {name: 'login', params: {message: 'user_created_successfully'}});
+                    this.$router.push( {name: 'login', params: {message: 'created_successfully'}});
                 }).catch((err) => {
                     console.log(err);
                 })

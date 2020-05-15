@@ -35,7 +35,7 @@ class MailNotify extends Mailable
             ->view('emails.email')->with([
                 'user' => JWTAuth::user(),
                 'notification' => $this->notification,
-                'url' => url("/notification/detail/" . $this->notification->id)
+                'url' => url("/notification/" . $this->notification->id)
             ]);
         //here is your blade view name
     }

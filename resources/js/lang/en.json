@@ -2,9 +2,11 @@
    "login" : "Login",
    "logout" : "Logout",
     "home" : "Home",
-    "create_notification" : "Create Notification",
+    "notification" : "Notification",
+    "list" : "List",
     "register" : "Register",
     "create" : "Create",
+    "users" : "Users",
     "title" : "Title",
     "content" : "Content",
     "confirm password" : "Confirm Password",
@@ -16,6 +18,6 @@
     "username_require" : "Username required.",
     "email_valid_format" : "Email Address in invalid format.",
     "login_fail" : "The Email address or Password is incorrect.",
-    "user_created_successfully" : "User created successfully!",
+    "created_successfully" : "Created successfully!",
     "confirm_password_dont_match" : "Password and confirm password don't match."
 }

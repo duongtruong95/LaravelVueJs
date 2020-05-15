@@ -8,9 +8,6 @@
                         <ul class="alert alert-danger pl-5" v-if="errors.length">
                             <li v-for="error in errors">{{ $t(error) }}</li>
                         </ul>
-                        <div class="alert alert-success" role="alert" v-if="messageSuccess">
-                            Thêm bài đăng thành công!
-                        </div>
                         <form method="POST" @submit="checkForm">
 
                             <div class="form-group row">
@@ -54,19 +51,16 @@
         data: () => ({
             title: '',
             content: '',
-            messageSuccess: false,
             errors: []
         }),
         methods: {
             create() {
-                this.$api.POST('/sendMail', {
+                this.$api.POST('/admin/sendMail', {
                     title: this.title,
                     content: this.content
                 }).then(() => {
-                        this.title = '';
-                        this.content = '';
-                        this.messageSuccess = true;
-                    })
+                    this.$router.push({name: 'listNotification', params: {message: 'created_successfully'}});
+                })
             },
             checkForm: function (e) {
                 this.errors = [];

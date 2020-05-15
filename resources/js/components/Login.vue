@@ -63,13 +63,16 @@
             password: '',
             errors: []
         }),
+        created() {
+            console.log(this.$route.params.redirect);
+        },
         methods: {
             login() {
                 this.$store.dispatch('login', {
                     email: this.email,
                     password: this.password
                 }).then(() => {
-                    this.$router.push({path: '/'});
+                    this.$router.push({path: this.$route.params.redirect || '/'});
                 }).catch((err) => {
                     if (err.response.status) {
                         if (err.response.status == 422) {

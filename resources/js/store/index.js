@@ -27,10 +27,10 @@ export default new Vuex.Store({
             i18n.locale = payload
             localStorage.setItem('lang', payload)
         },
-        clearUserData(state) {
+        clearUserData(state, payload) {
             localStorage.removeItem('user')
             state.isLogged = false
-            location.reload()
+            if (!payload) location.reload()
         }
     },
     actions: {
@@ -44,8 +44,8 @@ export default new Vuex.Store({
                     commit('setUserData', {token: data.access_token, email: credentials.email, level: data.level})
                 })
         },
-        logout({commit}) {
-            commit('clearUserData')
+        logout({commit}, payload) {
+            commit('clearUserData', payload)
         }
     }
 })

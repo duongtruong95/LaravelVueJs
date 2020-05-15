@@ -1,12 +1,13 @@
 <?php
 
 namespace App;
-
+use App\Traits\UnixTimestampSerializable;
 use Illuminate\Database\Eloquent\Model;
 
 class UserNotification extends Model
 {
-    protected $table = 'user_notification';
+    use UnixTimestampSerializable;
+    protected $table = 'notification_user';
     protected $fillable = [
         'is_readed',
     ];
